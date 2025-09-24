@@ -4,11 +4,11 @@ Autor: Victor Hugo de Oliveira Delavalentina;
 
 pterovoos é um site web para uma agência ficticia de turismos aereos que atua em Foz do Iguaçu e sobrevoa a cidade e seus pontos turisticos;
 
-Prototipação no Figma: WIP
+Prototipação no Figma: https://www.figma.com/design/w3wlQoOgaci14iPFV7814Q/Pterovoos?node-id=3-22&t=ErlXpkmqIxwNvQqp-1
 
-Framework CSS utilizado: Only God knows
+Framework CSS utilizado: Materialize
 
-Design System:
+Design System: Material 3 Design  kit
 
 Dependências:
 
