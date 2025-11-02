@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PTEROVOOS - Passeio Aereos</title>
+
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <!-- Google Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    /* Alguns Estilos personalizados */
+
+    .brand-logo { font-weight: 700; }
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      color: rgb(0, 0, 0);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-custom{
+      background-color: #D69662;
+    }
+
+    .btn-custom:hover{
+      background-color: #8EC1BC;
+    }
+
+    nav {
+      height: 90px !important;
+      line-height: 90px !important;
+      background-color: #1F3248 !important;
+    }
+
+    .sidenav-trigger{
+      line-height: 64px;
+      font-size: 36px;
+      color: white;
+    }
+
+    .modal-trigger{
+      background-color: #D69662;
+    }
+
+    .modal-trigger:hover{
+      background-color: #8EC1BC;
+    }
+
+    footer{
+      background-color: #1F3248 !important;
+    }
+
+    .hero .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      z-index: 1;
+    }
+    .hero .container { z-index: 2; }
+    .card .card-image img { height: 180px; object-fit: cover; }
+    .destinations .card { min-height: 320px; }
+    .footer-page { padding-top: 20px; }
+    @media (max-width: 600px) { .hero { min-height: 40vh; } }
+
+    
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">
+        <img src="assets/Ptero1.png" alt="PTEROVOOS" style="height: 90px;" class="hide-on-small-only">
+        <span class="hide-on-med-and-up">PTEROVOOS</span>
+      </a>
+      <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="#passeios">Passeios</a></li>
+        <li><a href="#pacotes">Pacotes</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="Areadousuario.html">Usuario</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-nav">
+    <li><a href="#passeios">Passeios</a></li>
+    <li><a href="#pacotes">Pacotes</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#contato">Contato</a></li>
+    <li><a href="Areadousuario.html">Usuario</a></li>
+  </ul>
+
+  <!-- Hero com parallax -->
+  <div class="parallax-container hero">
+    <div class="parallax"><img src="https://img.freepik.com/fotos-premium/linda-vista-aerea-das-cataratas-do-iguacu-a-partir-de-um-helicoptero-uma-das-sete-maravilhas-naturais-do-mundo-foz-do-iguacu-parana-brasil_63135-3686.jpg?w=2000" alt="Cataratas do iguaçu"></div>
+    <div class="overlay"></div>
+    <div class="container center white-text">
+      <h2 class="flow-text">PTEROVOOS</h2>
+      <p class="light">Sempre elevando suas experiências ao mais alto nivel!</p>
+      <a href="#pacotes" class="btn-large btn-custom waves-effect waves-light">Ver Pacotes</a>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Seção de Passeios -->
+    <section id="passeios" class="section">
+      <h4>Passeios em destaque</h4>
+      <div class="row destinations">
+
+        <!-- Passeio de Aviao -->
+
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="assets/Aviao.png" alt="Aviao">
+            </div>
+            <div class="card-content">
+              <span class="card-title">Avião</span>
+              <p>Sobrevoe as cataratas de maneira emocionante!.</p>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Saiba mais</a>
+              <a href="#" class="right">Reservar</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+            <h4>Passeio de Aviao</h4>
+            <img src="assets/Aviao.png" alt="Passeio 1" class="responsive-img" style="margin-bottom: 20px;">
+            <p>Descrição detalhada do Passeio 1, incluindo roteiro, atividades e dicas importantes.</p>
+            <div class="row">
+              <div class="col s12 m4">
+                <div class="card blue lighten-4 card-info">
+                  <div class="card-content">
+                    <span class="card-title">Horários</span>
+                    <p>08:00 / 14:00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12 m4">
+                <div class="card green lighten-4 card-info">
+                  <div class="card-content">
+                    <span class="card-title">Preço</span>
+                    <p>R$150/pessoa</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12 m4">
+                <div class="card orange lighten-4 card-info">
+                  <div class="card-content">
+                    <span class="card-title">Duração</span>
+                    <p>1h hora e 30 minutos</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+          </div>
+        </div>
+
+        <!-- Passeio de Heli -->
+
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="assets/Heli.png" alt="Helicóptero">
+            </div>
+            <div class="card-content">
+              <span class="card-title">Helicóptero</span>
+              <p>Sobrevoe as cataratas com conforto e emoção.</p>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Saiba mais</a>
+              <a href="#" class="right">Reservar</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+            <h4>Passeio de Helicóptero</h4>
+            <img src="assets/Heli.png" alt="Passeio 1" class="responsive-img" style="margin-bottom: 20px;">
+            <p>Descrição detalhada do Passeio 1, incluindo roteiro, atividades e dicas importantes.</p>
+            <div class="row">
+              <div class="col s12 m4">
+                <div class="card blue lighten-4 card-info">
+                  <div class="card-content">
+                    <span class="card-title">Horários</span>
+                    <p>08:00 / 14:00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12 m4">
+                <div class="card green lighten-4 card-info">
+                  <div class="card-content">
+                    <span class="card-title">Preço</span>
+                    <p>R$150/pessoa</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12 m4">
+                <div class="card orange lighten-4 card-info">
+                  <div class="card-content">
+                    <span class="card-title">Duração</span>
+                    <p>1h hora e 30 minutos</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+          </div>
+        </div>
+
+        <!-- Passeio de Balão -->
+
+        <div class="col s12 m4">
+          <div class="card hoverable">
+            <div class="card-image">
+              <img src="assets/Balao.png" alt="Balão">
+            </div>
+            <div class="card-content">
+              <span class="card-title">Balão</span>
+              <p>Um Passeio suave, para quem quer relaxar.</p>
+            </div>
+            <div class="card-action">
+              <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Saiba mais</a>
+              <a href="#" class="right">Reservar</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+            <h4>Passeio de Balão</h4>
+            <img src="assets/Balao.png" alt="Passeio 1" class="responsive-img" style="margin-bottom: 20px;">
+            <p>Descrição detalhada do Passeio, incluindo roteiro, atividades e dicas importantes.</p>
+            <div class="row">
+              <div class="col s12 m4">
+                <div class="card blue lighten-4 card-info">
+                  <div class="card-content">
+                    <span class="card-title">Horários</span>
+                    <p>08:00 / 14:00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12 m4">
+                <div class="card green lighten-4 card-info">
+                  <div class="card-content">
+                    <span class="card-title">Preço</span>
+                    <p>R$150/pessoa</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12 m4">
+                <div class="card orange lighten-4 card-info">
+                  <div class="card-content">
+                    <span class="card-title">Duração</span>
+                    <p>1h hora e 30 minutos</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Seção de Pacotes -->
+    <section id="pacotes" class="section">
+      <h4>Pacotes Populares</h4>
+      <div class="row">
+        <div class="col s12 m6">
+          <ul class="collection with-header">
+            <li class="collection-header"><h5>Pacote Aventura!</h5></li>
+            <li class="collection-item">Voe por cima das cataratas de Avião e depois pule de paraquedas em um lugar seguro!</li>
+            <li class="collection-item">R$ 1.999,00 <a class="secondary-content btn-small btn-custom">Contratar</a></li>
+          </ul>
+        </div>
+        <div class="col s12 m6">
+          <div class="card-panel grey lighten-4">
+            <h6>Personalize seu roteiro</h6>
+            <p>Escolha atividades, datas e preferências — nós montamos o resto.</p>
+            <a class="btn waves-effect waves-light modal-trigger" href="#modal-custom">Personalizar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de personalização (melhorarr) -->
+    <div id="modal-custom" class="modal">
+      <div class="modal-content">
+        <h4>Monte seu pacote</h4>
+        <div class="row">
+          <form class="col s12">
+            <div class="input-field col s12 m6">
+              <input id="name" type="text" class="validate">
+              <label for="name">Nome</label>
+            </div>
+            <div class="input-field col s12 m6">
+              <select>
+                <option value="1" disabled selected>Escolha uma Aeronave</option>
+                <option value="helicptero">Helicóptero</option>
+                <option value="aviao">Avião</option>
+                <option value="balao">Balão</option>
+                <option value="apache">Apache</option>
+              </select>
+              <label>Tipo de viagem</label>
+            </div>
+            <div class="input-field col s12">
+              <textarea id="notes" class="materialize-textarea"></textarea>
+              <label for="notes">Observações</label>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        <a href="#!" class="modal-close waves-effect waves-green btn btn-custom">Enviar</a>
+      </div>
+    </div>
+
+    <!-- Galeria -->
+    <section id="galeria" class="section">
+      <h4>Galeria</h4>
+      <div class="row">
+        <div class="col s12 m4" style="padding: 5px;">
+          <img class="materialboxed responsive-img" src="assets/Aviao.png" alt="foto1">
+        </div>
+        <div class="col s12 m4" style="padding: 5px;">
+          <img class="materialboxed responsive-img" src="assets/Balao.png" alt="foto2">
+        </div>
+        <div class="col s12 m4" style="padding: 5px;">
+          <img class="materialboxed responsive-img" src="assets/Heli.png" alt="foto3">
+        </div>
+
+        <div class="row">
+        <div class="col s12 m4" style="padding: 5px;">
+          <img class="materialboxed responsive-img" src="assets/Gemini_Generated_Image_93as1s93as1s93as.png" alt="foto4">
+        </div>
+        <div class="col s12 m4" style="padding: 5px;">
+          <img class="materialboxed responsive-img" src="assets/Gemini_Generated_Image_oqol0foqol0foqol.png" alt="foto5">
+        </div>
+        <div class="col s12 m4" style="padding: 5px;">
+          <img class="materialboxed responsive-img" src="assets/Gemini_Generated_Image_se0g4rse0g4rse0g.png" alt="foto6">
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="section">
+      <div class="container">
+      <h4 class="center-align">Contato</h4>
+      <div class="row">
+        <div class="col s12 m6">
+          <form>
+            <div class="input-field">
+              <input id="email" type="email" class="validate">
+              <label for="email">E-mail</label>
+            </div>
+            <div class="input-field">
+              <input id="phone" type="tel">
+              <label for="phone">Telefone</label>
+            </div>
+            <div class="input-field">
+              <textarea id="message" class="materialize-textarea"></textarea>
+              <label for="message">Mensagem</label>
+            </div>
+            <button class="btn btn-custom waves-effect waves-light" type="submit">Enviar</button>
+          </form>
+        </div>
+
+        <div class="col s12 m6">
+          <h6 class=" center-align">Informações</h6>
+          <div class="row">
+          <p><i class="material-icons tiny">place</i> Rua Fictícia, 123 — Centro</p>
+          <p><i class="material-icons tiny">phone</i> (11) 99999-9999</p>
+          <p><i class="material-icons tiny">email</i> contato@peterovoos.com</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="page-footer footer-page">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m6">
+          <h5 class="white-text">PTEROVOOS</h5>
+          <p class="grey-text text-lighten-4">
+          Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+          Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
+          Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+          Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="col s12 m4 offset-m2">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Sobre</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Termos</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Ajuda</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">© 2025 PTEROVOOS</div>
+    </div>
+  </footer>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(elems);
+      var parallax = document.querySelectorAll('.parallax');
+      M.Parallax.init(parallax);
+      var materialboxed = document.querySelectorAll('.materialboxed');
+      M.Materialbox.init(materialboxed);
+      var modal = document.querySelectorAll('.modal');
+      M.Modal.init(modal);
+      var select = document.querySelectorAll('select');
+      M.FormSelect.init(select);
+      var carousel = document.querySelectorAll('.carousel');
+      M.Carousel.init(carousel, {fullWidth: true, indicators: true});
+    });
+  </script>
+</body>
+</html>

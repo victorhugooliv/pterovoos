@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Área do Usuário - PTEROVOOS</title>
+
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Google Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    /* ----- Layout geral ----- */
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      background-color: #f5f5f5;
+    }
+
+    main {
+      flex: 1 0 auto; /* faz o conteúdo ocupar o espaço disponível */
+    }
+
+    nav {
+      background-color: #1F3248;
+    }
+
+    .brand-logo img {
+      height: 50px;
+      vertical-align: middle;
+    }
+
+    .btn-custom{
+      background-color: #D69662;
+    }
+
+    .btn-custom:hover{
+      background-color: #8EC1BC;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .card {
+      border-radius: 12px;
+    }
+
+    #painel {
+      display: none;
+    }
+
+    .info-section {
+      margin-top: 30px;
+    }
+
+    .notification {
+      background-color: #e3f2fd;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #1F3248;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-wrapper">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/Ptero1.png" alt="PTEROVOOS">
+      </a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="index.html#passeios">Passeios</a></li>
+    <li><a href="index.html#contato">Contato</a></li>
+  </ul>
+
+  <!-- Conteúdo principal -->
+  <main>
+
+    <!-- Tela de Login -->
+    <div id="login-section" class="container">
+      <div class="card">
+        <div class="card-content">
+          <h4 class="center-align">Área do Usuário</h4>
+          <form id="form-login">
+            <div class="input-field">
+              <input id="email" type="email" required>
+              <label for="email">E-mail</label>
+            </div>
+            <div class="input-field">
+              <input id="senha" type="password" required>
+              <label for="senha">Senha</label>
+            </div>
+            <div class="center-align">
+              <button type="submit" class="btn btn-custom waves-effect">Entrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painel do Usuário -->
+    <div id="painel" class="container">
+      <div class="card">
+        <div class="card-content center-align">
+          <h4>Bem-vindo, <span id="nome-usuario">Usuário</span>!</h4>
+          <p>Veja seus passeios e informações abaixo 👇</p>
+        </div>
+      </div>
+
+      <!-- Passeios agendados -->
+      <div class="info-section">
+        <h5><i class="material-icons left">map</i>Meus Passeios</h5>
+        <div id="lista-passeios" class="row"></div>
+      </div>
+
+      <!-- Total gasto -->
+      <div class="info-section">
+        <h5><i class="material-icons left">attach_money</i>Total Gasto</h5>
+        <div class="card blue-grey lighten-5">
+          <div class="card-content center-align">
+            <h5 id="total-gasto">R$ 0,00</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notificações -->
+      <div class="info-section">
+        <h5><i class="material-icons left">notifications</i>Notificações</h5>
+        <div id="notificacoes">
+          <div class="notification">Pagamento realizado! Passeio Apache confirmado!</div>
+          <div class="notification">Aguardando pagamento!</div>
+        </div>
+      </div>
+
+      <!-- Botão sair -->
+      <div class="center-align" style="margin-top: 30px;">
+        <button id="btn-sair" class="btn red darken-1 waves-effect">Sair</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 PTEROVOOS - Todos os direitos reservados
+  </footer>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<!-- Script feito com o chat GPT -->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const elems = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(elems);
+    });
+
+    // Dados simulados
+    const passeios = [
+      { nome: "Passeio de Helicóptero 3 pessoas", preco: 450 },
+      { nome: "Passeio de Balão", preco: 150 },
+      { nome: "Pacote Radical", preco: 1999 },
+    ];
+
+    // Login simulado
+    document.getElementById('form-login').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const nome = email.split('@')[0];
+      document.getElementById('nome-usuario').textContent = nome;
+
+      // Exibe painel e oculta login
+      document.getElementById('login-section').style.display = 'none';
+      document.getElementById('painel').style.display = 'block';
+
+      // Mostra passeios
+      const lista = document.getElementById('lista-passeios');
+      let total = 0;
+      lista.innerHTML = '';
+      passeios.forEach(p => {
+        total += p.preco;
+        lista.innerHTML += `
+          <div class="col s12 m6">
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title">${p.nome}</span>
+                <p>Valor: R$ ${p.preco.toFixed(2)}</p>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      document.getElementById('total-gasto').textContent = 'R$ ' + total.toFixed(2);
+    });
+
+    // Sair
+    document.getElementById('btn-sair').addEventListener('click', function() {
+      document.getElementById('painel').style.display = 'none';
+      document.getElementById('login-section').style.display = 'block';
+      document.getElementById('form-login').reset();
+    });
+  </script>
+
+</body>
+</html>
