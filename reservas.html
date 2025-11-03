@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva de Passeios - PTEROVOOS</title>
+
+    <!-- Google Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    nav {
+      background-color: #1F3248;
+    }
+
+    main {
+      flex: 1 0 auto;
+      padding: 40px 20px;
+    }
+
+    .brand-logo img {
+      height: 50px;
+      vertical-align: middle;
+    }
+
+    .btn-personalizado {
+      background-color: #1F3248;
+    }
+
+    .btn-personalizado:hover {
+      background-color: #27475A;
+    }
+
+    footer {
+      background-color: #1F3248;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: auto;
+    }
+
+    .card {
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-wrapper">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/Ptero1.png" alt="PTEROVOOS">
+      </a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="usuario.html">Área do Usuário</a></li>
+    <li><a href="index.html#contato">Contato</a></li>
+  </ul>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <div class="container">
+      <div class="card">
+        <div class="card-content">
+          <h4 class="center-align">Reserva de Passeios</h4>
+
+          <form id="form-reserva">
+            <div class="input-field">
+              <select id="passeio" required>
+                <option value="" disabled selected>Escolha um passeio</option>
+                <option value="150">Passeio de Avião - R$150</option>
+                <option value="150">Passeio de Helicóptero - R$150</option>
+                <option value="150"> Passeio de Balão - R$150</option>
+                <option value="10000">Passeio Apache - R$1000</option>
+              </select>
+              <label>Passeio</label>
+            </div>
+
+            <div class="input-field">
+              <input id="data" type="date" required>
+              <label for="data">Data do Passeio</label>
+            </div>
+
+            <div class="input-field">
+              <input id="pessoas" type="number" min="1" value="1" required>
+              <label for="pessoas">Número de Pessoas</label>
+            </div>
+
+            <div class="center-align" style="margin-top: 20px;">
+              <p><strong>Valor Total: </strong><span id="valorTotal">R$ 0,00</span></p>
+            </div>
+
+            <div class="center-align" style="margin-top: 30px;">
+              <button type="submit" class="btn btn-personalizado waves-effect">Confirmar Reserva</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal de Confirmação -->
+  <div id="modal-reserva" class="modal">
+    <div class="modal-content center-align">
+      <h5>🎉 Reserva Confirmada!</h5>
+      <p>Sua reserva foi realizada com sucesso.</p>
+      <p>Boa viagem com a <strong>PTEROVOOS</strong>!</p>
+    </div>
+    <div class="modal-footer">
+      <a href="index.html" class="modal-close btn btn-personalizado waves-effect">Voltar à Página Inicial</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 PTEROVOOS - Todos os direitos reservados
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      M.AutoInit();
+    });
+
+    // Atualiza o preço total
+    const passeioSelect = document.getElementById('passeio');
+    const pessoasInput = document.getElementById('pessoas');
+    const valorTotal = document.getElementById('valorTotal');
+
+    function atualizarPreco() {
+      const preco = parseFloat(passeioSelect.value || 0);
+      const pessoas = parseInt(pessoasInput.value || 1);
+      const total = preco * pessoas;
+      valorTotal.textContent = "R$ " + total.toFixed(2);
+    }
+
+    passeioSelect.addEventListener('change', atualizarPreco);
+    pessoasInput.addEventListener('input', atualizarPreco);
+
+    // Submeter reserva
+    document.getElementById('form-reserva').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const modal = M.Modal.getInstance(document.getElementById('modal-reserva'));
+      modal.open();
+      this.reset();
+      valorTotal.textContent = "R$ 0,00";
+    });
+  </script>
+</body>
+</html>
